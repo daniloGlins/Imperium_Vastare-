@@ -13,7 +13,8 @@
 
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="index.php" class="sign-in-form" method="POST">
+                <!-- Altere o atributo action para apontar para o arquivo PHP que fará a verificação da senha -->
+                <form action="verifica_senha.php" class="sign-in-form" method="POST">
                     <h2 class="title">Entrar</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -22,9 +23,6 @@
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="senha" placeholder="Senha" required />
-                        <script>
-
-                        </script>
                     </div>
 
                     <div class="">
@@ -32,7 +30,6 @@
                     </div>
                     <input type="submit" value="Login" class="btn solid" />
                 </form>
-
 
                 <form action="config/criarUser.php" class="sign-up-form" method="POST">
                     <h2 class="title">Crie Sua Nova Conta</h2>
@@ -52,7 +49,6 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Senha" name="senha" required />
                     </div>
-
 
                     <input type="submit" class="btn" value="Criar Nova Conta" required />
                 </form>
@@ -89,45 +85,14 @@
 
     <script>
     document.querySelector('.sign-up-form').addEventListener('submit', function(event) {
-    window.alert("Sua conta foi criada com sucesso!");
-    event.preventDefault();
-    
-    // Recarrega a página para voltar ao início do login
-    window.location.reload();
-});
-
-/*document.querySelector('.sign-in-form').addEventListener('submit', function(event) {
-    var loginSucesso = false;
-
-    if (!loginSucesso) {
-        event.preventDefault(); // Impede o envio do formulário.
-
-        // Exibe um alerta do navegador para o usuário.
-        window.alert("Não foi possível entrar na conta. Verifique seu usuário e senha.");
-    }
-});*/
+        window.alert("Sua conta foi criada com sucesso!");
+        event.preventDefault();
+        
+        // Recarrega a página para voltar ao início do login
+        window.location.reload();
+    });
     </script>
 
-    <script>
-    document.querySelector('.sign-in-form').addEventListener('submit', function(event) {
-    var username = document.querySelector('.sign-in-form .username').value;
-    var password = document.querySelector('.sign-in-form .password').value;
-
-    var loginSucesso = verificausername(username, senha); // Substitua esta função
-
-    if (!loginSucesso) {
-        event.preventDefault(); // Impede o envio do formulário.
-
-        // Exibe um alerta do navegador para o usuário.
-        window.alert("Não foi possível entrar na conta. Verifique seu usuário e senha.");
-    }
-});
-
-function verificausername(username, password) {
-    // Substitua esta função pela sua própria lógica de verificação no lado do servidor.
-    // Esta função deve retornar 'true' se o usuário e a password estiverem corretos e 'false' caso contrário.
-}
-    </script>
     <script src="js/app.js"></script>
 </body>
 
